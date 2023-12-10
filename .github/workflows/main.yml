@@ -1,0 +1,37 @@
+name: linting
+
+on:
+  push:
+  pull_request:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  lint_and_build:
+    name: Rust project lint and test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        toolchain:
+          - stable
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: "Rustup update"
+        run: rustup update ${{ matrix.toolchain }} && rustup default ${{ matrix.toolchain }}
+        if: always()
+      - name: "Install rustfmt"
+        run: rustup component add rustfmt
+        if: always()
+      - name: "Install clippy"
+        run: rustup component add clippy
+        if: always()
+      - name: "Start format check"
+        run: "cargo fmt --check"
+        if: always()
+      - name: "Start clippy check"
+        run: "cargo clippy"
+        if: always()
+      - name: "Start build project"
+        run: cargo build --verbose
