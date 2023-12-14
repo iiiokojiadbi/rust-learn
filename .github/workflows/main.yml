@@ -1,15 +1,12 @@
-name: linting and build
+name: lint, test, build
 
 on:
   push:
   pull_request:
 
-env:
-  CARGO_TERM_COLOR: always
-
 jobs:
-  lint_and_build:
-    name: Rust project lint and test
+  homeworks:
+    name: Rust project lint, test and build
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -23,6 +20,9 @@ jobs:
         if: always()
       - name: "Start clippy and format check"
         run: "cargo clippy && cargo fmt --check --verbose"
+        if: always()
+      - name: "Run integration test"
+        run: cargo test --test integration
         if: always()
       - name: "Start build in release mode"
         run: cargo build --verbose --release
