@@ -27,7 +27,11 @@ pub fn tuple_sum(values: (usize, usize)) -> usize {
 }
 
 pub fn array_sum(arr: [usize; 3]) -> usize {
-    arr.into_iter()
+    match arr
+        .into_iter()
         .reduce(|acc, value| acc.saturating_add(value))
-        .unwrap()
+    {
+        Some(value) => value,
+        None => usize::MAX,
+    }
 }
