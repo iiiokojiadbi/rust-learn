@@ -50,7 +50,7 @@ mod test {
         assert_eq!(vec3_scalar_sum([1; 3], [1; 3]), 6);
         assert_eq!(vec3_scalar_sum([0; 3], [0; 3]), 0);
 
-        assert_ne!(vec3_scalar_sum([1; 3], [1; 3]), 6);
-        assert_ne!(vec3_scalar_sum([0; 3], [3; 3]), 9);
+        assert_ne!(vec3_scalar_sum([1; 3], [1; 3]), 5);
+        assert_ne!(vec3_scalar_sum([0; 3], [3; 3]), 6);
     }
 }
