@@ -1,3 +1,5 @@
+#![allow(dead_code)]
+
 pub fn double_int32(value: u32) -> u32 {
     value.saturating_mul(2)
 }
