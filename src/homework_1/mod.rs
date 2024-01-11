@@ -29,7 +29,7 @@ pub fn tuple_sum(values: (usize, usize)) -> usize {
 pub fn array_sum(arr: [usize; 3]) -> usize {
     arr.into_iter()
         .reduce(|acc, value| acc.saturating_add(value))
-        .unwrap_or_else(|| usize::MAX)
+        .unwrap_or(usize::MAX)
 }
 
 #[cfg(test)]

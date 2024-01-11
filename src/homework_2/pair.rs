@@ -21,15 +21,26 @@ mod test {
     #[test]
     fn test_default_pair() {
         assert_eq!(default_pair(), (0, 0));
+
+        assert_ne!(default_pair(), (1, 1));
     }
 
     #[test]
     fn test_pair_vector_sum() {
         assert_eq!(pair_vector_sum((1, 1), (1, 1)), (2, 2));
+        assert_eq!(pair_vector_sum((0, 0), (1, 1)), (1, 1));
+
+        assert_ne!(pair_vector_sum((1, 1), (1, 1)), (0, 0));
+        assert_ne!(pair_vector_sum((1, 1), (1, 1)), (4, 4));
     }
 
     #[test]
     fn test_pair_scalar_sum() {
         assert_eq!(pair_scalar_sum((1, 1), (1, 1)), 4);
+        assert_eq!(pair_scalar_sum((0, 0), (1, 1)), 2);
+        assert_eq!(pair_scalar_sum((0, 0), (0, 0)), 0);
+
+        assert_ne!(pair_scalar_sum((1, 1), (1, 1)), 2);
+        assert_ne!(pair_scalar_sum((1, 1), (1, 1)), 0);
     }
 }

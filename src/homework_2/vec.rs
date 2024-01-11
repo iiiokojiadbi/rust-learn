@@ -31,15 +31,26 @@ mod test {
     #[test]
     fn test_default_vec3() {
         assert_eq!(default_vec3(), [0; 3]);
+
+        assert_ne!(default_vec3(), [1; 3]);
+        assert_ne!(default_vec3(), [-1; 3]);
     }
 
     #[test]
     fn test_vec3_vector_sum() {
         assert_eq!(vec3_vector_sum([1; 3], [1; 3]), [2; 3]);
+        assert_eq!(vec3_vector_sum([0; 3], [0; 3]), [0; 3]);
+
+        assert_ne!(vec3_vector_sum([1; 3], [1; 3]), [0; 3]);
+        assert_ne!(vec3_vector_sum([1; 3], [1; 3]), [6; 3]);
     }
 
     #[test]
     fn test_vec3_scalar_sum() {
         assert_eq!(vec3_scalar_sum([1; 3], [1; 3]), 6);
+        assert_eq!(vec3_scalar_sum([0; 3], [0; 3]), 0);
+
+        assert_ne!(vec3_scalar_sum([1; 3], [1; 3]), 6);
+        assert_ne!(vec3_scalar_sum([0; 3], [3; 3]), 9);
     }
 }
