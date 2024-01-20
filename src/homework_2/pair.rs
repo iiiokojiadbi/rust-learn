@@ -19,8 +19,6 @@ mod test {
     #[test]
     fn test_default_pair() {
         assert_eq!(default_pair(), (0, 0));
-
-        assert_ne!(default_pair(), (1, 1));
     }
 
     #[test]

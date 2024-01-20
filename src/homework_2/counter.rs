@@ -28,17 +28,11 @@ mod test {
     #[test]
     fn test_default_signed_counter() {
         assert_eq!(default_signed_counter(), 0);
-
-        assert_ne!(default_signed_counter(), -1);
-        assert_ne!(default_signed_counter(), 1);
     }
 
     #[test]
     fn test_default_unsigned_counter() {
         assert_eq!(default_unsigned_counter(), 0);
-
-        assert_ne!(default_unsigned_counter(), 1);
-        assert_ne!(default_unsigned_counter(), 2);
     }
 
     #[test]

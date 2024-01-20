@@ -29,9 +29,6 @@ mod test {
     #[test]
     fn test_default_vec3() {
         assert_eq!(default_vec3(), [0; 3]);
-
-        assert_ne!(default_vec3(), [1; 3]);
-        assert_ne!(default_vec3(), [-1; 3]);
     }
 
     #[test]
