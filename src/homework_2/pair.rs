@@ -1,5 +1,3 @@
-#![allow(dead_code)]
-
 type Pair = (i32, i32);
 
 pub fn default_pair() -> Pair {

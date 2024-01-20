@@ -1,5 +1,3 @@
-#![allow(dead_code)]
-
 const VEC3_LEN: usize = 3;
 
 type Vec3 = [i32; VEC3_LEN];
