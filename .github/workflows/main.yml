@@ -2,7 +2,11 @@ name: lint, test, build
 
 on:
   push:
+    branches:
+      - master
   pull_request:
+    branches:
+      - "*"
 
 jobs:
   homeworks:
@@ -21,8 +25,8 @@ jobs:
       - name: "Start clippy and format check"
         run: "cargo clippy && cargo fmt --check --verbose"
         if: always()
-      - name: "Run integration test"
-        run: cargo test --test integration
+      - name: "Run test"
+        run: cargo test --verbose
         if: always()
       - name: "Start build in release mode"
         run: cargo build --verbose --release
