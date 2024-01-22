@@ -126,12 +126,11 @@ mod test {
         assert_eq!(get_splitted_slice_into_parts(&elements, 3), expected);
 
         let expected: Vec<&[u32]> = vec![&[1, 2, 3, 4, 5, 6, 7, 8]];
+        assert_eq!(get_splitted_slice_into_parts(&elements, 0), expected);
         assert_eq!(get_splitted_slice_into_parts(&elements, 1), expected);
 
         let expected: Vec<&[u32]> = vec![&[1], &[2], &[3], &[4], &[5], &[6], &[7], &[8]];
         assert_eq!(get_splitted_slice_into_parts(&elements, 8), expected);
-
-        let expected: Vec<&[u32]> = vec![&[1], &[2], &[3], &[4], &[5], &[6], &[7], &[8]];
         assert_eq!(get_splitted_slice_into_parts(&elements, 200), expected);
     }
 }
