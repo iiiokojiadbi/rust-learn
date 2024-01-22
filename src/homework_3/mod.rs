@@ -34,8 +34,6 @@ pub fn get_splitted_slice_into_parts(elements: &[u32], parts: usize) -> Vec<&[u3
     let mut slices = vec![];
     let parts = (elements.len() as f32 / parts as f32).ceil() as usize;
 
-    println!("{}, {}", parts, elements.len());
-
     for index in 0..=(elements.len() / parts) {
         let start = index * parts;
         let last = if start + parts > elements.len() {
@@ -43,8 +41,6 @@ pub fn get_splitted_slice_into_parts(elements: &[u32], parts: usize) -> Vec<&[u3
         } else {
             start + parts
         };
-
-        println!("{}", index);
 
         let slice = &elements[start..last];
 
