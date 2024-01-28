@@ -1,6 +1,5 @@
-workspace = { members = ["homework_1", "homework_2", "homework_4"] }
 [package]
-name = "rust-learn"
+name = "homework_4"
 version = "0.1.0"
 edition = "2021"
 
